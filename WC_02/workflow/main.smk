@@ -1,4 +1,5 @@
 SAMPLES = ["A", "B", "C", "D"]
+group = [1, 2, 3, 4, "rev.1", "rev.2"]
 
 rule all:
     input:
@@ -8,22 +9,20 @@ rule bowtie_build:
     input:
         "/commons/Themas/Thema11/Dataprocessing/WC02/data/genome.fa"
     output:
-        "bowtie/genome.btindex"
+        "bowtie/genome.btindex{group}.bt2"
     shell:
         "bowtie2-build {input} {output}"
 
-rule bwa_map:
+rule bowtie:
     input:
-        bt = "bowtie/genome.btindex",
-        fasta = "/commons/Themas/Thema11/Dataprocessing/WC02/data/samples/{sample}.fastq"
+        "/commons/Themas/Thema11/Dataprocessing/WC02/data/samples/{sample}.fastq"
     benchmark:
         "benchmarks/{sample}.bowtie2.benchmark.txt"
     output:
         "mapped_reads/{sample}.bam"
-    message: "executing bwa mem on {input} to build {output}"
+    message: "executing bowtie2 on {input} to build {output}"
     shell:
-
-        "bowtie2 -x {input.bt} -U {input.fasta} | "
+        "bowtie2 -x bowtie/genome.btindex -U {input} | "
         "samtools view -Sb - > {output}"
 
 rule samtools_sort:

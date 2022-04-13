@@ -1,5 +1,5 @@
 
-configfile: "config/config.yaml"
+configfile: "../config/config.yaml"
 
 rule install_refgen:
     output:
@@ -11,7 +11,6 @@ rule install_refgen:
         datatype="dna",
         build=config["ref"]["build"],
         release=config["ref"]["release"]
-    cache: True
     wrapper:
         "v1.3.2/bio/reference/ensembl-sequence"
 

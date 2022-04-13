@@ -1,6 +1,20 @@
 
 
 ref:
+  # ensembl species name
   species: saccharomyces_cerevisiae
+  # ensembl release
   release: 100
+  # genome build
   build: R64-1-1
+
+fastq:
+  # file containing barcodes
+  barcodefile: barcode
+  # fastq (.gz) file name containing R1 of the read (all if single ended)
+  r1: my_R1
+  # fastq (.gz) file name containing R2 of the read (leave empty if single ended)
+  r2: my_R2
+  # extension of fastq file
+  fastq_ext: fastq.gz
+

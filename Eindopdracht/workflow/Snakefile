@@ -1,7 +1,10 @@
-configfile: "config/config.yaml"
+configfile: "../config/config.yaml"
 
 include: "rules/refgen.smk"
+include: "rules/fastq_processing.smk"
+include: "rules/varcall.smk"
 
 rule all:
     input:
-        multiext("data/refgen/genome.fasta", ".amb", ".ann", ".bwt", ".pac", ".sa", ".fai"),
+        "call/all.vcf"
+
