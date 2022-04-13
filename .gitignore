@@ -145,3 +145,6 @@ dmypy.json
 .idea/sqlDataSources.xml
 .idea/dynamic.xml
 .idea/uiDesigner.xml
+
+# Data
+Eindopdracht/data/
