@@ -9,11 +9,11 @@ ref:
   build: R64-1-1
 
 fastq:
-  # file containing barcodes
+  # file containing barcodes (no extension!!)
   barcodefile: barcode
-  # fastq (.gz) file name containing R1 of the read (all if single ended)
+  # fastq (.gz) file name containing R1 of the read (all if single ended) (no extension!!)
   r1: my_R1
-  # fastq (.gz) file name containing R2 of the read (leave empty if single ended)
+  # fastq (.gz) file name containing R2 of the read (leave empty if single ended) (no extension!!)
   r2: my_R2
   # extension of fastq file
   fastq_ext: fastq.gz
